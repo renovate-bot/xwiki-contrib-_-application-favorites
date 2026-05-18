@@ -274,7 +274,7 @@ No parameters are currently supported.
   #foreach($f in $favoritePages)
     #set($fDoc = $xwiki.getDocument($f))
     #if(!$fDoc.isNew())
-      * [[$fDoc.displayTitle&gt;&gt;$fDoc.prefixedFullName]]
+      * [[$services.rendering.escape($services.rendering.escape($fDoc.plainTitle, 'xwiki/2.1'), 'xwiki/2.1')&gt;&gt;$services.rendering.escape($fDoc.prefixedFullName, 'xwiki/2.1')]]
     #end
   #end
 #end

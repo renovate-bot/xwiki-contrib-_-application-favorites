@@ -44,7 +44,7 @@
   #if ($xwiki.exists($FavoritesDocRef))
     #set ($FavoritesDoc = $xwiki.getDocument($FavoritesDocRef))
     #if($FavoritesDoc)
-** [[$FavoritesDoc.displayTitle&gt;&gt;$services.model.serialize($FavoritesDocRef)]]
+** [[$services.rendering.escape($services.rendering.escape($FavoritesDoc.plainTitle, 'xwiki/2.1'), 'xwiki/2.1')&gt;&gt;$services.rendering.escape($services.model.serialize($FavoritesDocRef), 'xwiki/2.1')]]
     #end
   #end
 #end
