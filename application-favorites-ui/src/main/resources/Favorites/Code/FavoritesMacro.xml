@@ -273,7 +273,7 @@ No parameters are currently supported.
 #if ($favoritePages &amp;&amp; $favoritePages.size() &gt; 0)
   #foreach($f in $favoritePages)
     #set($fDoc = $xwiki.getDocument($f))
-    #if(!$fDoc.isNew())
+    #if(!$fDoc.isNew() &amp;&amp; !$objecttool.isNull($fDoc) &amp;&amp; $services.security.authorization.hasAccess('view', $fDoc.documentReference))
       * [[$services.rendering.escape($services.rendering.escape($fDoc.plainTitle, 'xwiki/2.1'), 'xwiki/2.1')&gt;&gt;$services.rendering.escape($fDoc.prefixedFullName, 'xwiki/2.1')]]
     #end
   #end
